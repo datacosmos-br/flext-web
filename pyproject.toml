@@ -427,7 +427,6 @@ testpaths = ["tests"]
 exclude = [
   "**/.archive/**",
   "**/__pyrefly_virtual__/**",
-  "**/aihub-hooks/**",
   ".archive",
   ".archive/**",
   ".git",

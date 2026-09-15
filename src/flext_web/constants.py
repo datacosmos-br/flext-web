@@ -10,11 +10,14 @@ from typing import ClassVar, Final
 
 from flext_cli import c, t
 
+from ._constants.base import FlextWebConstantsBase
+from ._constants.values import FlextWebConstantsValues
+
 
 class FlextWebConstants(c):
     """Immutable project-specific constants organized by domain."""
 
-    class Web:
+    class Web(FlextWebConstantsBase, FlextWebConstantsValues):
         """Web domain constants namespace.
 
         All web-specific constants are organized here for better namespace

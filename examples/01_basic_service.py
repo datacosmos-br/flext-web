@@ -5,26 +5,33 @@ from __future__ import annotations
 from flext_web import web
 
 
-def main() -> None:
-    """Start flext-web using validated namespaced settings and the facade."""
-    # Settings are validated at construction; overrides go through clone().
-    settings = web.settings.clone(
-        Web={
-            "host": "127.0.0.1",
-            "port": 8000,
-            "secret_key": "dev-secret-key-32-characters-long",
-        },
-        debug=True,
-    )
-    try:
-        _ = web.start_service(
-            host=settings.Web.host, port=settings.Web.port, debug=settings.debug
-        )
-    except KeyboardInterrupt:
-        return
-    except (RuntimeError, OSError, ValueError):
-        raise
+class FlextWebExamples:
+    """FlextWeb example facade for the basic service startup."""
 
+    def main(self) -> None:
+        """Start flext-web using validated namespaced settings and the facade."""
+        # Settings are validated at construction; overrides go through clone().
+        settings = web.settings.clone(
+            Web={
+                "host": "127.0.0.1",
+                "port": 8000,
+                "secret_key": "dev-secret-key-32-characters-long",
+            },
+            debug=True,
+        )
+        try:
+            _ = web.start_service(
+                host=settings.Web.host, port=settings.Web.port, debug=settings.debug
+            )
+        except KeyboardInterrupt:
+            return
+        except (RuntimeError, OSError, ValueError):
+            raise
+
+
+examples_flext_web = FlextWebExamples()
+
+__all__: list[str] = ["FlextWebExamples", "examples_flext_web"]
 
 if __name__ == "__main__":
-    main()
+    examples_flext_web.main()

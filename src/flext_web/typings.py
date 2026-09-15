@@ -2,18 +2,19 @@
 
 Copyright (c) 2025 FLEXT Team. All rights reserved.
 SPDX-License-Identifier: MIT
-
 """
 
 from __future__ import annotations
 
 from flext_cli import t
 
+from ._typings.base import FlextWebTypingsBase
+
 
 class FlextWebTypes(t):
     """Web-specific type definitions extending t via MRO."""
 
-    class Web:
+    class Web(FlextWebTypingsBase):
         """Web domain namespace (flat members per AGENTS.md §149)."""
 
         type RequestDict = dict[str, t.Scalar | t.StrSequence | t.ConfigurationMapping]

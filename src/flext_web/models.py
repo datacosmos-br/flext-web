@@ -1,55 +1,41 @@
-"""FLEXT Web models for web applications.
-
-Provides Pydantic models for web-based applications with validation.
-
-Copyright (c) 2025 FLEXT Team. All rights reserved.
-SPDX-License-Identifier: MIT
-"""
+"""FLEXT Web model facade."""
 
 from __future__ import annotations
 
 from flext_cli import m
 
-from ._models import (
-    FlextWebModelsAuth,
-    FlextWebModelsConfig,
-    FlextWebModelsEntity,
-    FlextWebModelsFactory,
-    FlextWebModelsHttp,
-    FlextWebModelsResponses,
-    FlextWebModelsSystem,
-    FlextWebModelsWebMessage,
-    FlextWebModelsWebRequest,
-)
+from flext_web import t
+
+from ._models._auth import FlextWebModelsAuth
+from ._models._base import FlextWebModelsBase
+from ._models._config import FlextWebModelsConfig
+from ._models._entity import FlextWebModelsEntity
+from ._models._factory import FlextWebModelsFactory
+from ._models._http import FlextWebModelsHttp
+from ._models._responses import FlextWebModelsResponses
+from ._models._system import FlextWebModelsSystem
+from ._models._web_message import FlextWebModelsWebMessage
+from ._models._web_request import FlextWebModelsWebRequest
 
 
 class FlextWebModels(m):
-    """Web application models collection.
+    """HTTP domain models for flext-web."""
 
-    Provides Pydantic models for web applications with validation.
-    """
-
-    class Web(
-        FlextWebModelsHttp.Web,
-        FlextWebModelsWebMessage.Web,
-        FlextWebModelsEntity.Web,
-        FlextWebModelsAuth.Web,
-        FlextWebModelsResponses.Web,
-        FlextWebModelsWebRequest.Web,
-        FlextWebModelsConfig.Web,
-        FlextWebModelsSystem.Web,
-        FlextWebModelsFactory.Web,
+    class Api(
+        FlextWebModelsBase,
+        FlextWebModelsConfig,
+        FlextWebModelsEntity,
+        FlextWebModelsFactory,
+        FlextWebModelsHttp,
+        FlextWebModelsResponses,
+        FlextWebModelsSystem,
+        FlextWebModelsWebMessage,
+        FlextWebModelsWebRequest,
+        FlextWebModelsAuth,
     ):
-        """Web application models namespace.
-
-        Contains HTTP message models, application entities, and web-specific
-        domain objects used throughout the FLEXT web ecosystem.
-
-        Models are immutable value objects (frozen=True) following domain-driven
-        design principles with Pydantic v2 validation.
-        """
+        """API domain models namespace."""
 
 
 m = FlextWebModels
 
-__all__: list[str] = ["FlextWebModels", "m"]
+__all__: t.MutableSequenceOf[str] = ["FlextWebModels", "m"]

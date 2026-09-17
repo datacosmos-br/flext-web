@@ -29,7 +29,7 @@ dependencies = [
   "starlette>=1.6.0",
   "structlog>=25.5.0,<26",
   "typing-extensions>=4.16.0",
-  "uvicorn>=0.52.4",
+  "uvicorn>=0.53.0",
   "werkzeug>=3.1.8",
 ]
 description = "FLEXT Web - Modern Web Interface for FLEXT Platform"

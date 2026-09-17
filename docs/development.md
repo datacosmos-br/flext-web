@@ -1,12 +1,14 @@
 # Development Guide - flext-web
 
 <!-- TOC START -->
+
 - [Current Architecture](#current-architecture)
 - [Development Workflow](#development-workflow)
 - [Public API Rule](#public-api-rule)
 - [Settings Rule](#settings-rule)
 - [Service Rule](#service-rule)
 - [Quality Rule](#quality-rule)
+
 <!-- TOC END -->
 
 ## Current Architecture
@@ -14,7 +16,9 @@
 `flext-web` is centered on one canonical public facade:
 
 ```python
+
 ```
+
 Current source layout:
 
 - `api.py`: thin public facade and shared `web` instance
@@ -49,7 +53,7 @@ Use `make gen` when exports or lazy initialization need regeneration.
 
 Configuration access is namespaced and direct:
 
-```python
+````python
 from flext_web import FlextWebSettings, settings
 
 runtime_settings = FlextWebSettings(
@@ -73,3 +77,4 @@ Changes are not complete until both commands pass:
 ```bash
 make check PROJECT=flext-web
 make test PROJECT=flext-web```
+````

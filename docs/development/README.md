@@ -1,11 +1,13 @@
 # flext-web Development Reference
 
 <!-- TOC START -->
+
 - [Canonical Entry Point](#canonical-entry-point)
 - [Implementation Map](#implementation-map)
 - [Development Commands](#development-commands)
 - [Runtime Surface](#runtime-surface)
 - [Contribution Guardrails](#contribution-guardrails)
+
 <!-- TOC END -->
 
 This reference tracks the current implementation, not historical or target
@@ -14,7 +16,9 @@ architectures.
 ## Canonical Entry Point
 
 ```python
+
 ```
+
 ## Implementation Map
 
 - `api.py`: public facade
@@ -34,7 +38,7 @@ make gen PROJECT=flext-web
 
 ## Runtime Surface
 
-```python
+````python
 from flext_web import web
 
 web.settings
@@ -52,3 +56,4 @@ web.stop_service()```
 - Do not document or reintroduce obsolete helpers such as
   `create_web_service`, `get_web_settings`, `reset_web_settings`,
   `validate_config` or direct `service.run()` flows.
+````

@@ -1,17 +1,19 @@
 # Configuration Guide - flext-web
 
 <!-- TOC START -->
+
 - [Canonical Access](#canonical-access)
 - [Settings Model](#settings-model)
 - [Validation](#validation)
 - [Environment Variables](#environment-variables)
 - [Service Bootstrap](#service-bootstrap)
 - [Operational Rules](#operational-rules)
+
 <!-- TOC END -->
 
 `flext-web` exposes its validated singleton directly through the package root:
 
-```python
+````python
 from flext_web import settings
 
 host = settings.Web.host```
@@ -129,3 +131,4 @@ assert start_result.success```
   or `validate_config`.
 - Read the direct `settings.Web` singleton and validate explicit overrides with
   `FlextWebSettings`.
+````

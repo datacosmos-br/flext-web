@@ -1,7 +1,9 @@
 # flext-web API Overview
 
 <!-- TOC START -->
+
 - [Next Pages](#next-pages)
+
 <!-- TOC END -->
 
 <!-- AUTO-GENERATED — DO NOT EDIT MANUALLY -->
@@ -13,7 +15,7 @@
 - Classifiers: `Development Status :: 3 - Alpha`, `Framework :: Flask`,
   `Intended Audience :: Developers`, `Operating System :: OS Independent`,
   `Programming Language :: Python :: 3 :: Only`, `Programming Language :: Python
-  :: 3.13` (+3 more)
+:: 3.13` (+3 more)
 - Project class: `domain`
 - Keywords: `enterprise`, `flask`, `flext`, `frontend`, `typed`, `web`
 - Main facades: `FlextWeb`, `FlextWebApp`, `FlextWebAuth`, `FlextWebConfig`,

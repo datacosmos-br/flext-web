@@ -1,9 +1,11 @@
 # Getting Started - flext-web
 
 <!-- TOC START -->
+
 - [Install](#install)
 - [Basic Usage](#basic-usage)
 - [Working Pattern](#working-pattern)
+
 <!-- TOC END -->
 
 `flext-web` exposes its canonical public facade as `web`.
@@ -19,7 +21,7 @@ python -c "from flext_web import web; u.Cli.print('Import successful')"
 
 ## Basic Usage
 
-```python
+````python
 from flext_web import web
 
 settings_result = web.settings.create_web_config(
@@ -35,3 +37,4 @@ web.get_service_status()```
 - Use `web.create_fastapi_app()` and `web.create_flask_app()` for framework factories.
 - Use `web.start_service()` and `web.stop_service()` for lifecycle control.
 - Keep examples and tests on the public facade, not on service classes.
+````

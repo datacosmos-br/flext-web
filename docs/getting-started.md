@@ -12,7 +12,7 @@
 
 ```bash
 cd flext-web
-poetry install
+uv sync
 make setup
 python -c "from flext_web import web; u.Cli.print('Import successful')"
 ```

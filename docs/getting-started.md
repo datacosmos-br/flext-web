@@ -11,8 +11,6 @@
 ## Install
 
 ```bash
-cd flext-web
-uv sync
 make setup
 python -c "from flext_web import web; u.Cli.print('Import successful')"
 ```

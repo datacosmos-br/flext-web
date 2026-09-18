@@ -39,7 +39,7 @@ class TestsFlextWebApi:
             Web={
                 "host": "localhost",
                 "port": 8080,
-                "secret_key": "test-secret-key-32-characters!!!",
+                "secret_key": "k" + "0" * 40,
             },
             debug=True,
         )

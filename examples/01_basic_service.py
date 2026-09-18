@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import os
+
 from flext_web import web
 
 
@@ -15,7 +17,7 @@ class FlextWebExamples:
             Web={
                 "host": "127.0.0.1",
                 "port": 8000,
-                "secret_key": "dev-secret-key-32-characters-long",
+                "secret_key": os.environ.get("FLEXT_WEB_SECRET_KEY", "<demo-secret>"),
             },
             debug=True,
         )

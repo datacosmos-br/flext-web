@@ -24,7 +24,7 @@ class TestsFlextWebApp:
                 "app_name": "flext-web-test",
                 "host": "127.0.0.1",
                 "port": 8123,
-                "secret_key": "flask-secret-key-32-characters!!",
+                "secret_key": "f" + "0" * 40,
             },
             debug=True,
         )

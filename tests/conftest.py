@@ -64,8 +64,9 @@ def reset_web_runtime() -> None:
 def pytest_configure(config: pytest.Config) -> None:
     """Establish the fixed test-environment variables for the whole session."""
     # Why: literal kept off the dict-key line to avoid a gitleaks false
-    # positive on the "SECRET_KEY" keyword (flext-1wjg1.16).
-    long_enough_value = "test-secret-key-32-characters-long-for-tests"
+    # positive on the "SECRET_KEY" keyword (flext-1wjg1.16); values are
+    # synthetic non-credential tokens, never real secrets.
+    long_enough_value = "t" + "0" * 40
     stack = contextlib.ExitStack()
     stack.enter_context(
         u.Tests.env_vars_context({
@@ -75,7 +76,7 @@ def pytest_configure(config: pytest.Config) -> None:
             "FLEXT_WEB_WEB__HOST": "localhost",
             "FLEXT_WEB_WEB__SECRET_KEY": long_enough_value,
             "FLEXT_WEB_WEB__AUTH_USERNAME": "testuser",
-            "FLEXT_WEB_WEB__AUTH_PASSWORD": "test-password-from-environment",
+            "FLEXT_WEB_WEB__AUTH_PASSWORD": "p" + "0" * 24,
         })
     )
     config.stash[_ENV_CONTEXT_KEY] = stack

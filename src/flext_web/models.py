@@ -21,19 +21,19 @@ from ._models._web_request import FlextWebModelsWebRequest
 class FlextWebModels(m):
     """HTTP domain models for flext-web."""
 
-    class Api(
+    class Web(
         FlextWebModelsBase,
-        FlextWebModelsConfig,
-        FlextWebModelsEntity,
-        FlextWebModelsFactory,
-        FlextWebModelsHttp,
-        FlextWebModelsResponses,
-        FlextWebModelsSystem,
-        FlextWebModelsWebMessage,
-        FlextWebModelsWebRequest,
-        FlextWebModelsAuth,
+        FlextWebModelsConfig.Web,
+        FlextWebModelsEntity.Web,
+        FlextWebModelsFactory.Web,
+        FlextWebModelsHttp.Web,
+        FlextWebModelsResponses.Web,
+        FlextWebModelsSystem.Web,
+        FlextWebModelsWebMessage.Web,
+        FlextWebModelsWebRequest.Web,
+        FlextWebModelsAuth.Web,
     ):
-        """API domain models namespace."""
+        """Web domain models namespace."""
 
 
 m = FlextWebModels

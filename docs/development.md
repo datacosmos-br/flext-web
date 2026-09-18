@@ -44,8 +44,7 @@ Use `make gen` when exports or lazy initialization need regeneration.
 ## Public API Rule
 
 - Operational code should prefer `web`.
-- Tests and examples should exercise the public facade, not internal service
-  classes.
+- Tests and examples should exercise the public facade, not internal service classes.
 - `api.py` stays thin; behavior belongs in services, settings, protocols or app
   factories.
 

@@ -14,17 +14,17 @@
 - Doc summary: Flext Web package.
 - Classifiers: `Development Status :: 3 - Alpha`, `Framework :: Flask`,
   `Intended Audience :: Developers`, `Operating System :: OS Independent`,
-  `Programming Language :: Python :: 3 :: Only`, `Programming Language :: Python
-:: 3.13` (+3 more)
+  `Programming Language :: Python :: 3 :: Only`,
+  `Programming Language :: Python :: 3.13` (+3 more)
 - Project class: `domain`
 - Keywords: `enterprise`, `flask`, `flext`, `frontend`, `typed`, `web`
 - Main facades: `FlextWeb`, `FlextWebApp`, `FlextWebAuth`, `FlextWebConfig`,
-  `FlextWebConstants`, `FlextWebEntities`, `FlextWebHandlers`, `FlextWebHealth`
-  (+7 more)
+  `FlextWebConstants`, `FlextWebEntities`, `FlextWebHandlers`, `FlextWebHealth` (+7
+  more)
 - Alias exports: `c`, `d`, `e`, `h`, `m`, `p`, `r`, `s`, `t`, `u`, `x`
-- Public symbol exports: `FlextWeb`, `FlextWebApp`, `FlextWebAuth`,
-  `FlextWebConfig`, `FlextWebConstants`, `FlextWebEntities`, `FlextWebHandlers`,
-  `FlextWebHealth`, `FlextWebModels`, `FlextWebProtocols` (+8 more)
+- Public symbol exports: `FlextWeb`, `FlextWebApp`, `FlextWebAuth`, `FlextWebConfig`,
+  `FlextWebConstants`, `FlextWebEntities`, `FlextWebHandlers`, `FlextWebHealth`,
+  `FlextWebModels`, `FlextWebProtocols` (+8 more)
 - Exported module shortcuts: `services`
 - Generated module pages: `14`
 

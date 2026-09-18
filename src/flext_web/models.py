@@ -23,15 +23,15 @@ class FlextWebModels(m):
 
     class Web(
         FlextWebModelsBase,
-        FlextWebModelsConfig.Web,
-        FlextWebModelsEntity.Web,
-        FlextWebModelsFactory.Web,
-        FlextWebModelsHttp.Web,
-        FlextWebModelsResponses.Web,
-        FlextWebModelsSystem.Web,
-        FlextWebModelsWebMessage.Web,
-        FlextWebModelsWebRequest.Web,
-        FlextWebModelsAuth.Web,
+        FlextWebModelsConfig,
+        FlextWebModelsEntity,
+        FlextWebModelsFactory,
+        FlextWebModelsHttp,
+        FlextWebModelsResponses,
+        FlextWebModelsSystem,
+        FlextWebModelsWebMessage,
+        FlextWebModelsWebRequest,
+        FlextWebModelsAuth,
     ):
         """Web domain models namespace."""
 

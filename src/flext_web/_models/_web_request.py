@@ -36,16 +36,16 @@ class FlextWebModelsWebRequest:
                 description="Request URL",
             ),
         ]
-        headers: Annotated[
-            t.MutableStrMapping, u.Field(description="HTTP headers")
-        ] = u.Field(default_factory=dict)
+        headers: Annotated[t.MutableStrMapping, u.Field(description="HTTP headers")] = (
+            u.Field(default_factory=dict)
+        )
         body: Annotated[
             str | t.JsonValue | None,
             u.Field(description="Request body (optional for GET/HEAD)"),
         ] = None
-        request_id: Annotated[
-            str, u.Field(description="Unique request identifier")
-        ] = u.Field(default_factory=lambda: str(uuid.uuid4()))
+        request_id: Annotated[str, u.Field(description="Unique request identifier")] = (
+            u.Field(default_factory=lambda: str(uuid.uuid4()))
+        )
         timestamp: Annotated[datetime, u.Field(description="Request timestamp")] = (
             u.Field(default_factory=u.now)
         )
@@ -53,9 +53,7 @@ class FlextWebModelsWebRequest:
     class WebResponse(m.Value):
         """Web response model with status tracking."""
 
-        request_id: Annotated[
-            str, u.Field(description="Associated request identifier")
-        ]
+        request_id: Annotated[str, u.Field(description="Associated request identifier")]
         status_code: Annotated[
             int,
             u.Field(
@@ -74,9 +72,9 @@ class FlextWebModelsWebRequest:
         response_id: Annotated[
             str, u.Field(description="Unique response identifier")
         ] = u.Field(default_factory=lambda: str(uuid.uuid4()))
-        timestamp: Annotated[
-            datetime, u.Field(description="Response timestamp")
-        ] = u.Field(default_factory=u.now)
+        timestamp: Annotated[datetime, u.Field(description="Response timestamp")] = (
+            u.Field(default_factory=u.now)
+        )
 
 
 __all__: list[str] = ["FlextWebModelsWebRequest"]

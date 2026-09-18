@@ -59,9 +59,7 @@ class FlextWebModelsEntity:
             reserved_names = c.Web.SECURITY_RESERVED_NAMES
 
             if not (min_length <= len(v) <= max_length):
-                msg = (
-                    f"Name must be between {min_length} and {max_length} characters"
-                )
+                msg = f"Name must be between {min_length} and {max_length} characters"
                 raise ValueError(msg)
 
             if v.lower() in reserved_names:
@@ -104,12 +102,12 @@ class FlextWebModelsEntity:
                 raise ValueError(msg)
             return v
 
-        environment: Annotated[
-            str, u.Field(description="Deployment environment")
-        ] = c.Web.Name.DEVELOPMENT.value
-        debug_mode: Annotated[
-            bool, u.Field(description="Debug mode enabled flag")
-        ] = u.Field(default_factory=lambda: settings.debug)
+        environment: Annotated[str, u.Field(description="Deployment environment")] = (
+            c.Web.Name.DEVELOPMENT.value
+        )
+        debug_mode: Annotated[bool, u.Field(description="Debug mode enabled flag")] = (
+            u.Field(default_factory=lambda: settings.debug)
+        )
         metrics: Annotated[
             t.MutableJsonMapping, u.Field(description="Application metrics")
         ] = u.Field(default_factory=dict)
@@ -204,15 +202,11 @@ class FlextWebModelsEntity:
         def add_domain_event(
             self,
             event_type: str,
-            data: m.ConfigMap
-            | t.MappingKV[str, t.JsonPayload | None]
-            | None = None,
+            data: m.ConfigMap | t.MappingKV[str, t.JsonPayload | None] | None = None,
         ) -> p.Result[m.Entry]:
             """Create and buffer a domain event for this web application entity."""
             if not event_type.strip():
-                return r[m.Entry].fail(
-                    "Domain event name must be a non-empty string"
-                )
+                return r[m.Entry].fail("Domain event name must be a non-empty string")
             if event_type.isdigit():
                 return r[m.Entry].fail("Domain event name cannot be numeric-only")
             entry = u.add_domain_event(
@@ -291,22 +285,13 @@ class FlextWebModelsEntity:
                                 failure contains error message
 
             """
-            supported_metrics = {
-                "requests",
-                "errors",
-                "uptime",
-                "avg_response_time_ms",
-            }
+            supported_metrics = {"requests", "errors", "uptime", "avg_response_time_ms"}
             if not all(key in supported_metrics for key in new_metrics):
-                return r[bool].fail(
-                    "Metrics must be a dict of supported metric keys"
-                )
+                return r[bool].fail("Metrics must be a dict of supported metric keys")
             self.metrics.update(new_metrics)
             event_result = self.add_web_event("MetricsUpdated")
             if event_result.failure:  # pragma: no cover
-                return r[bool].fail(
-                    f"Failed to add web event: {event_result.error}"
-                )
+                return r[bool].fail(f"Failed to add web event: {event_result.error}")
             return r[bool].ok(value=True)
 
         def validate_business_rules(self) -> p.Result[bool]:
@@ -327,9 +312,7 @@ class FlextWebModelsEntity:
             min_port = c.Web.VALIDATION_PORT_RANGE[0]
             max_port = c.Web.VALIDATION_PORT_RANGE[1]
             if not (min_port <= self.port <= max_port):
-                return r[bool].fail(
-                    f"Port must be between {min_port} and {max_port}"
-                )
+                return r[bool].fail(f"Port must be between {min_port} and {max_port}")
             return r[bool].ok(value=True)
 
         @classmethod
@@ -387,8 +370,7 @@ class FlextWebModelsEntity:
         debug: Annotated[
             bool,
             u.Field(
-                default_factory=lambda: settings.debug,
-                description="Debug mode flag",
+                default_factory=lambda: settings.debug, description="Debug mode flag"
             ),
         ]
         secret_key: Annotated[

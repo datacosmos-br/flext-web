@@ -39,9 +39,9 @@ class FlextWebModelsWebMessage:
 
         """
 
-        request_id: Annotated[
-            str, u.Field(description="Unique request identifier")
-        ] = u.Field(default_factory=lambda: str(uuid.uuid4()))
+        request_id: Annotated[str, u.Field(description="Unique request identifier")] = (
+            u.Field(default_factory=lambda: str(uuid.uuid4()))
+        )
         query_params: Annotated[
             t.MutableConfigurationMapping,
             u.Field(description="Query string parameters"),
@@ -79,24 +79,20 @@ class FlextWebModelsWebMessage:
         """
 
         elapsed_time: Annotated[
-            t.NonNegativeFloat,
-            u.Field(description="Response elapsed time in seconds"),
+            t.NonNegativeFloat, u.Field(description="Response elapsed time in seconds")
         ] = 0.0
         response_id: Annotated[
             str, u.Field(description="Unique response identifier")
         ] = u.Field(default_factory=lambda: str(uuid.uuid4()))
-        request_id: Annotated[
-            str, u.Field(description="Associated request identifier")
-        ]
-        content_type: Annotated[
-            str, u.Field(description="Response content type")
-        ] = c.Web.HTTP_CONTENT_TYPE_JSON
+        request_id: Annotated[str, u.Field(description="Associated request identifier")]
+        content_type: Annotated[str, u.Field(description="Response content type")] = (
+            c.Web.HTTP_CONTENT_TYPE_JSON
+        )
         content_length: Annotated[
             t.NonNegativeInt, u.Field(description="Response body length in bytes")
         ] = 0
         processing_time_ms: Annotated[
-            t.NonNegativeFloat,
-            u.Field(description="Processing time in milliseconds"),
+            t.NonNegativeFloat, u.Field(description="Processing time in milliseconds")
         ] = 0.0
 
         @property

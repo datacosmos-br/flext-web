@@ -58,16 +58,12 @@ class FlextWebModelsResponses:
         """Metrics response model."""
 
         service_status: Annotated[str, u.Field(description="Service status")]
-        components: Annotated[
-            t.StrSequence, u.Field(description="Service components")
-        ]
+        components: Annotated[t.StrSequence, u.Field(description="Service components")]
 
     class DashboardResponse(m.Value):
         """Dashboard response model."""
 
-        total_applications: Annotated[
-            int, u.Field(description="Total applications")
-        ]
+        total_applications: Annotated[int, u.Field(description="Total applications")]
         running_applications: Annotated[
             int, u.Field(description="Running applications")
         ]

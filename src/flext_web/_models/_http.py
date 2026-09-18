@@ -41,9 +41,7 @@ class FlextWebModelsHttp:
         ] = None
         timestamp: Annotated[
             datetime,
-            u.Field(
-                description="Timestamp of message creation (configured timezone)"
-            ),
+            u.Field(description="Timestamp of message creation (configured timezone)"),
         ] = u.Field(default_factory=u.now)
 
     class Request(Message):

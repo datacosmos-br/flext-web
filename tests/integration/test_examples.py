@@ -57,41 +57,42 @@ class ExamplesFullFunctionalityTest:
     def test_basic_service_example_exposes_main(self) -> None:
         """The basic service example stays importable and runnable."""
         module = self._load_example_module("01_basic_service.py", "basic_service")
-        tm.that(callable(module.main), eq=True)
+        tm.that(callable(module.examples_flext_web.main), eq=True)
 
     def test_api_usage_example_uses_the_public_facade(self) -> None:
         """The API usage example delegates lifecycle operations to `web`."""
         module = self._load_example_module("02_api_usage.py", "api_usage")
+        example = module.examples_flext_web
 
-        health_result = module.check_service_health()
+        health_result = example.check_service_health()
         tm.ok(health_result)
         tm.that(health_result.value.service, eq="flext-web")
 
-        create_result = module.create_application("example-app", 8191)
+        create_result = example.create_application("example-app", 8191)
         tm.ok(create_result)
 
-        start_result = module.start_application(create_result.value.id)
+        start_result = example.start_application(create_result.value.id)
         tm.ok(start_result)
         tm.that(start_result.value.running, eq=True)
 
-        get_result = module.fetch_application_status(create_result.value.id)
+        get_result = example.fetch_application_status(create_result.value.id)
         tm.ok(get_result)
         tm.that(get_result.value.id, eq=create_result.value.id)
 
-        list_result = module.list_applications()
+        list_result = example.list_applications()
         tm.ok(list_result)
         tm.that(
             any(app.id == create_result.value.id for app in list_result.value), eq=True
         )
 
-        stop_result = module.stop_application(create_result.value.id)
+        stop_result = example.stop_application(create_result.value.id)
         tm.ok(stop_result)
         tm.that(stop_result.value.running, eq=False)
 
     def test_api_usage_demo_runs_full_lifecycle(self) -> None:
         """The lifecycle demo returns the projected applications after execution."""
         module = self._load_example_module("02_api_usage.py", "api_usage_demo")
-        demo_result = module.demo_application_lifecycle()
+        demo_result = module.examples_flext_web.demo_application_lifecycle()
         tm.ok(demo_result)
         tm.that(demo_result.value, length=2)
         tm.that(all(app.running is False for app in demo_result.value), eq=True)

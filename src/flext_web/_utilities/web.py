@@ -139,7 +139,9 @@ class FlextWebUtilitiesWeb:
             """Return the registered payload or fail with a not-found error."""
             payload = FlextWebUtilitiesWeb.apps_registry.get(entity_id)
             if payload is None:
-                return r[t.Web.ResponseDict].fail(f"Application '{entity_id}' not found")
+                return r[t.Web.ResponseDict].fail(
+                    f"Application '{entity_id}' not found"
+                )
             return r[t.Web.ResponseDict].ok(payload)
 
         @classmethod

@@ -10,15 +10,11 @@ from flext_core.lazy import build_lazy_import_map, install_lazy_exports
 
 if TYPE_CHECKING:
     from .base import FlextWebUtilitiesBase
-    from .web import FlextWebUtilitiesWeb
-__all__: tuple[str, ...] = ("FlextWebUtilitiesBase", "FlextWebUtilitiesWeb")
+__all__: tuple[str, ...] = ("FlextWebUtilitiesBase",)
 
 _LAZY_IMPORTS = MappingProxyType(
     build_lazy_import_map(
-        MappingProxyType({
-            ".base": ("FlextWebUtilitiesBase",),
-            ".web": ("FlextWebUtilitiesWeb",),
-        }),
+        MappingProxyType({".base": ("FlextWebUtilitiesBase",)}),
         alias_groups=MappingProxyType({}),
         sort_keys=False,
     )

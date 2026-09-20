@@ -1,30 +1,31 @@
 """Base protocol facade for flext-web.
 
-Absorbs every protocol shard through MRO so the public ``protocols.py``
-facade composes a single ``Api`` namespace.
+Owns the single composition of every protocol shard ``Web`` namespace so the
+public ``protocols.py`` facade delegates to one canonical merge.
 """
 
 from __future__ import annotations
 
-from . import (
-    FlextWebProtocolsConfig,
-    FlextWebProtocolsData,
-    FlextWebProtocolsFramework,
-    FlextWebProtocolsLifecycle,
-    FlextWebProtocolsMonitoring,
-    FlextWebProtocolsTemplate,
-)
+from .config import FlextWebProtocolsConfig
+from .data import FlextWebProtocolsData
+from .framework import FlextWebProtocolsFramework
+from .lifecycle import FlextWebProtocolsLifecycle
+from .monitoring import FlextWebProtocolsMonitoring
+from .template import FlextWebProtocolsTemplate
 
 
-class FlextWebProtocolsBase(
-    FlextWebProtocolsConfig,
-    FlextWebProtocolsData,
-    FlextWebProtocolsFramework,
-    FlextWebProtocolsLifecycle,
-    FlextWebProtocolsMonitoring,
-    FlextWebProtocolsTemplate,
-):
+class FlextWebProtocolsBase:
     """FLEXT Web protocol namespace."""
+
+    class Web(
+        FlextWebProtocolsLifecycle.Web,
+        FlextWebProtocolsData.Web,
+        FlextWebProtocolsTemplate.Web,
+        FlextWebProtocolsMonitoring.Web,
+        FlextWebProtocolsConfig.Web,
+        FlextWebProtocolsFramework.Web,
+    ):
+        """Composed Web protocol surface."""
 
 
 __all__: list[str] = ["FlextWebProtocolsBase"]

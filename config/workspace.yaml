@@ -6,8 +6,8 @@ name: flext-web
 repository:
   name: flext-web
   distribution: flext-web
-  provider: flext-sh
-  url: https://github.com/flext-sh/flext-web.git
+  provider: datacosmos-br
+  url: https://github.com/datacosmos-br/flext-web.git
   path: .
   role: standalone
   state: active

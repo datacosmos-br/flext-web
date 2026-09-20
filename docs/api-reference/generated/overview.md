@@ -12,10 +12,10 @@
 - Version: `0.12.0`
 - Description: FLEXT Web - Modern Web Interface for FLEXT Platform
 - Doc summary: Flext Web package.
-- Classifiers: `Development Status :: 3 - Alpha`, `Framework :: Flask`,
-  `Intended Audience :: Developers`, `Operating System :: OS Independent`,
-  `Programming Language :: Python :: 3 :: Only`,
-  `Programming Language :: Python :: 3.13` (+3 more)
+- Classifiers: Development Status :: 3 - Alpha, Framework :: Flask, Intended Audience ::
+  Developers, Operating System :: OS Independent, Programming Language :: Python :: 3 ::
+  Only, Programming Language :: Python :: 3.13, Topic :: Internet :: WWW/HTTP :: Dynamic
+  Content, Topic :: Software Development :: Libraries :: Python Modules, Typing :: Typed
 - Project class: `domain`
 - Keywords: `enterprise`, `flask`, `flext`, `frontend`, `typed`, `web`
 - Main facades: `FlextWeb`, `FlextWebApp`, `FlextWebAuth`, `FlextWebConfig`,
